@@ -1,0 +1,27 @@
+
+<div id="main">
+    <div id="content">
+      <div id="leftDiv">
+        <button id="backButton" (click)="backButton()"><</button>
+        <p>{{ nameWhoseCalendar }}</p>
+        <p id="eventName">{{ evName }}</p>
+      </div>
+      <div id="rightDiv">
+        <h3>Share your preferred times</h3>
+        <p>The meeting host will see your preferences when deciding on a final time.</p>
+  
+        <form #userForm="ngForm" (submit)="formSubmit(userForm)">
+            <label for="Name">Name *</label>
+          <input type="text" id="Name" name="Name" ngModel required />
+          <p *ngIf="nameBlank" class="warning">Can't be blank.</p>
+  
+          <label for="Email">Email *</label>
+          <input type="email" id="Email" name="Email" ngModel required />
+          <p *ngIf="emailBlank" class="warning">Can't be blank.</p>         
+  
+          <button id="scheduleEvent" type="submit">Share Times</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   

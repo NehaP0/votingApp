@@ -1,0 +1,80 @@
+#content {
+    width: 70%;
+    height: 100vh;
+    margin: auto;
+    /* border: 1px solid red; */
+    margin-top: 80px;
+    box-shadow: rgba(56, 57, 58, 0.2) 0px 8px 24px;
+    display: flex;
+  }
+  #leftDiv {
+    padding: 30px;
+    border: 1px solid rgb(231, 231, 231);
+    color: #2b2a2a9c;
+    font-weight: bold;
+    font-size: 16px;
+    width: 30%;
+    padding-right: 10%;
+  }
+  #backButton {
+    /* padding: 15px;
+    border-radius: 50%; */
+    color: #1671fb;
+    border: none;
+    /* background-color: #1671fb;
+    border: 1px solid #1671fb;
+    margin-bottom: 20px; */
+    background-color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #backButton ng-icon {
+    /* font-weight: bold; */
+    color: #1671fb;
+  }
+  #eventName {
+    color: #1a1a1a;
+    font-size: 25px;
+  }
+  
+  #rightDiv {
+    padding: 30px;
+    font-size: 14px;
+  }
+  form > input {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgb(173, 172, 172);
+    width: 100%;
+    margin: 20px 0;
+  }
+  form > button {
+    display: block;
+    margin-top: 10px;
+    border-radius: 50px;
+  } 
+
+  #scheduleEvent {
+    padding: 10px 15px;
+    background-color: #1671fb;
+    border: none;
+    color: white;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  form > label {
+    font-weight: bold;
+  }
+  .warning {
+    margin: 5px 0px;
+    color: #cf6868;
+  }
+  button:hover{
+    cursor: pointer;
+    background-color: #9bb9e5;
+  }
+  

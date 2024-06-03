@@ -1,0 +1,40 @@
+<body>
+  <div class="container">
+    <div class="header">
+      <!-- <div id="avatarDiv" *ngIf="avatar">
+        <img [src]="avatar" alt="img" />
+      </div> -->
+      <div class="details">
+        <h1 *ngIf="reqDeetsObj">{{ reqDeetsObj.evName }}</h1>
+        <p *ngIf="name">{{ name }}</p>
+      </div>
+    </div>
+    <div class="poll">
+      <p id="meetingPollHead">Meeting Poll</p>
+      <h4>Select all the times you're available to meet</h4>
+      <!-- <div class="timezone">
+                <p>Time zone: India Standard Time (3:42pm)</p>
+            </div> -->
+      <div
+        class="times"
+        *ngFor="let obj of dateAndTimeOfObjects; let i = index"
+      >
+        <p id="date">Date: {{ obj.date }}</p>
+        <p id="duration">Duration: {{ obj.duration }} minutes</p>
+        <button
+          id="start"
+          class="time"
+          [class.selected]="obj.selected"
+          (click)="toggleSelection(i)"
+        >
+          {{ obj.start }}
+        </button>
+
+        <hr />
+      </div>
+    </div>
+    <div class="footer">
+      <button class="next" (click)="onNext()">Next</button>
+    </div>
+  </div>
+</body>

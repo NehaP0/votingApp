@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f4; */
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 40%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(5, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%
+}
+.header {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.header img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}meetingPollHead
+.header .details {
+    margin-left: 20px;
+}
+.header .details h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.header .details p {
+    margin: 5px 0;
+    color: #555;
+}
+#meetingPollHead{
+    color: #6200ea;
+    font-weight: bold;
+}
+.poll {
+    padding: 20px;
+}
+.poll h2 {
+    margin: 0 0 20px;
+}
+.poll .timezone {
+    margin-bottom: 20px;
+}
+.poll .times {
+    /* display: flex;
+    gap: 20px; */
+}
+.poll .time {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #6200ea;
+    border-radius: 4px;
+    color: #4403a0;
+    cursor: pointer;
+    /* font-weight: bold; */
+    font-size: 15px;
+}
+.poll .time.selected {
+    background-color: #6200ea;
+    color: #fff;
+}
+.footer {
+    padding: 20px;
+    text-align: right;
+    border-top: 1px solid #ddd;
+}
+.footer .next {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.selected {
+    background-color: #6200ea; 
+  }
