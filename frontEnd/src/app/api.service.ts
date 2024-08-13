@@ -6,21 +6,22 @@ import { tap } from 'rxjs/operators';
 
 
 interface User {
-    emailID: string;
-    events: any[];
-    meetingsWtOthers: any[];
-    name: string;
-    password : string;
-    phoneNumber : string;
-    profileImage : string;
-    userAvailability : object;
-    voting : any[]
-  }
+  emailID: string;
+  events: any[];
+  meetingsWtOthers: any[];
+  name: string;
+  password: string;
+  phoneNumber: string;
+  profileImage: string;
+  userAvailability: object;
+  voting: any[]
+}
 
 interface UserResponse {
-    user: User;
-    shortId : string
-  }
+  user: User;
+  shortId: string;
+  emailId : string
+}
 
 @Injectable({
   providedIn: 'root',
@@ -29,48 +30,51 @@ export class APIService {
   private eventsArraySubject = new BehaviorSubject<object[]>([]);
   private userSubject = new BehaviorSubject<object>({});
   private shortIdSubject = new BehaviorSubject("");
+  private calOwnerEmailIdSubject = new BehaviorSubject("")
 
 
   public eventsArray$ = this.eventsArraySubject.asObservable();
   public user$ = this.userSubject.asObservable();
   public shortId$ = this.shortIdSubject.asObservable();
+  public calOwnerEmailId$ = this.calOwnerEmailIdSubject.asObservable()
 
-
-  backendUrl = 'http://localhost:3000';  
+  backendUrl = 'http://localhost:3000';
 
   private headers: HttpHeaders = new HttpHeaders();
 
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
 
-//   getUser(): Observable<UserResponse> {
-//     const apiUrl = `${this.backendUrl}/user/getUserDeetsForVoting`
-//     return this.httpClient.get<UserResponse>(apiUrl);
-//   }
+  //   getUser(): Observable<UserResponse> {
+  //     const apiUrl = `${this.backendUrl}/user/getUserDeetsForVoting`
+  //     return this.httpClient.get<UserResponse>(apiUrl);
+  //   }
 
-getUser(): Observable<UserResponse> {
+  getUser(): Observable<UserResponse> {
     const apiUrl = `${this.backendUrl}/user/getUserDeetsForVoting`;
     return this.httpClient.get<UserResponse>(apiUrl).pipe(
       tap(response => {
         this.userSubject.next(response.user);
         this.shortIdSubject.next(response.shortId)
+        this.calOwnerEmailIdSubject.next(response.emailId)
 
-        console.log("this.UserSubject in api ", this.userSubject.value);        
+        console.log("this.UserSubject in api ", this.userSubject.value);
         console.log("this.shortIdSubject in api ", this.userSubject.value);
-            
-        localStorage.setItem("userName",response.user['name'])
+        console.log("this.calOwnerEmailIdSubject in api ", this.calOwnerEmailIdSubject.value);
+
+        localStorage.setItem("userName", response.user['name'])
 
       })
     );
   }
 
-  setSelectedTimes(selectedTimes:object[]){
-    console.log("selectedTimes in api ",selectedTimes);
+  setSelectedTimes(selectedTimes: object[]) {
+    console.log("selectedTimes in api ", selectedTimes);
     this.eventsArraySubject.next(selectedTimes);
     // console.log("this.eventsArraySubject ", this.eventsArraySubject.value);    
   }
 
-  
+
 }
 
 

@@ -78,9 +78,7 @@ export class MailForPollComponent {
         }
         else{
           alert(responseObject['msg'])
-        }
-      
-      
+        }      
     }    
   }
 
